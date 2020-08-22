@@ -1,0 +1,39 @@
+{
+  "name": "portal_finder",
+  "private": true,
+  "dependencies": {
+    "@rails/actioncable": "^6.0.0",
+    "@rails/activestorage": "^6.0.0",
+    "@rails/ujs": "^6.0.0",
+    "@rails/webpacker": "5.2.1",
+    "core-js": "^3.6.5",
+    "leaflet": "^1.6.0",
+    "leaflet-defaulticon-compatibility": "^0.1.1",
+    "leaflet-providers": "^1.10.1",
+    "lodash": "^4.17.19",
+    "stimulus": "^1.1.1",
+    "stimulus_reflex": "^3.3.0-pre2",
+    "tailwindcss": "^1.4.6",
+    "tailwindcss-dark-mode": "^1.1.4",
+    "turbolinks": "^5.2.0",
+    "@fullhuman/postcss-purgecss": "^2.3.0"
+  },
+  "version": "0.1.0",
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^2.3.0",
+    "autoprefixer": "^9.8.4",
+    "eslint": "^7.4.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-import-resolver-webpack": "^0.12.2",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "postcss-nested": "^4.2.2",
+    "stylelint": "^13.6.1",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-prettier": "^1.1.2",
+    "stylelint-scss": "^3.18.0",
+    "webpack-dev-server": "^3.11.0"
+  }
+}

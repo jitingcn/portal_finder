@@ -1,0 +1,8 @@
+%div(class="flex flex-col items-center")
+  - unless user_signed_in?
+    %div(class="text-xl font-bold")请注册或登录后使用网站功能。
+  - else
+    %div(class="text-xl font-semibold")= "#{t('Welcome')}, #{@user_name}!"
+    %a(href="#{portals_path}") portals index
+    %a(href="#{new_portal_path}") add new portal
+    %a(href="#{ifs_searches_path}") ifs_search index

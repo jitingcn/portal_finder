@@ -1,0 +1,23 @@
+%h1 Listing ifs_searches
+
+%table
+  %thead
+    %tr
+      %th search_id
+      %th image
+      %th result
+      %th manage
+
+  %tbody
+    - @ifs_searches.each do |ifs_search|
+      %tr
+        %td= ifs_search.id
+        %td
+          <img class="m-5 w-32 object-cover" src="#{url_for ifs_search.request.variant(resize_to_fit: [600, 600]).processed}"
+        %td= link_to '详情', ifs_search
+        %td= link_to 'Edit', edit_ifs_search_path(ifs_search)
+        %td= link_to 'Destroy', ifs_search, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Ifs search', new_ifs_search_path

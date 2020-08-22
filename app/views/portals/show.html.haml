@@ -1,0 +1,9 @@
+-#%h1(class="text-3xl font-bold mb-4")= @portal.name
+%div#canvas(class="w-full h-5/6 bg-blue-100 mb-4" data-controller="portal"
+data-portal-name="#{@portal.name}"
+data-portal-coordinate="#{@portal.coordinate}"
+data-portal-url="#{@portal.image_url}"
+data-target="portal.canvas")
+= link_to 'Edit', edit_portal_path(@portal)
+\|
+= link_to 'Back', portals_path

@@ -1,0 +1,10 @@
+= form_for @ifs_search do |f|
+  - if @ifs_search.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@ifs_search.errors.count, "error")} prohibited this ifs_search from being saved:"
+      %ul
+        - @ifs_search.errors.full_messages.each do |msg|
+          %li= msg
+
+  .actions
+    = f.submit 'Save'

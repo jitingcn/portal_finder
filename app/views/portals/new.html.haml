@@ -1,0 +1,10 @@
+%h1 New portal
+
+%div(class="my-8 flex flex-col items-center border-t-2 border-b-2 py-4" data-controller="portal")
+  %span(class="font-bold text-red-600 mb-2") batch mode
+  %input(class="mb-2" type="file" id="har-file")
+  %button(class="rounded bg-blue-300 border-2 border-black px-2" data-action="portal#readSingleFile") submit
+
+-# = render 'form'
+
+= link_to 'Back', portals_path

@@ -1,0 +1,12 @@
+%div(class="grid grid-rows-5 w-full h-full" data-controller="ifs-search")
+  %div#canvas(class="row-span-4 bg-blue-100 mb-4")
+  %div(class="flex flex-col w-full")
+    %div(class="flex w-full mb-2 border-r border-black")
+      - @results.each_with_index do |result, index|
+        %div(class="flex-1 h-10 text-center text-2xl font-light bg-gray-300 border-l border-black" data-target="ifs-search.column"
+        data-column-index="#{index}" data-action="click->ifs-search#currentColumn" data-coordinate-list="#{coordinates result}")= index + 1
+    -#%div(class="flex-1 mb-6") portal detail
+    %div(class="self-center")
+      -# = link_to 'Edit', edit_ifs_search_path(@ifs_search)
+      -# \|
+      = link_to 'Back', ifs_searches_path

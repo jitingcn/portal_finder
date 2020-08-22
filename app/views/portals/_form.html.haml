@@ -1,0 +1,10 @@
+= form_for @portal do |f|
+  - if @portal.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@portal.errors.count, "error")} prohibited this portal from being saved:"
+      %ul
+        - @portal.errors.full_messages.each do |msg|
+          %li= msg
+
+  .actions
+    = f.submit 'Save'

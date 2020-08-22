@@ -1,0 +1,43 @@
+<% content_for :main_class do %>
+  justify-center
+<% end %>
+
+<div class="flex flex-col w-full items-center justify-center">
+  <div class="flex flex-col items-center bg-blue-200 bg-opacity-25 shadow-md rounded-md justify-center px-6 py-8">
+    <h2 class="text-2xl font-black"><%= t('.sign_up') %></h2>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {class: 'm-2'}) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="field mb-4">
+        <%= f.label :username %><br />
+        <%= f.text_field :login, autofocus: true, class: "m-2 border-2" %>
+      </div>
+
+      <div class="field mb-4">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autocomplete: "email", class: "m-2 border-2" %>
+      </div>
+
+      <div class="field mb-4">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+        <em class="text-red-600"><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password", class: "m-2 border-2" %>
+      </div>
+
+      <div class="field mb-6">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "m-2 border-2" %>
+      </div>
+      <div class="flex justify-center">
+        <button class="actions rounded border-2 border-solid px-3 py-1">
+          <%= f.submit t('.sign_up') %>
+        </button>
+      </div>
+    <% end %>
+
+    <%= render "users/shared/links" %>
+  </div>
+</div>

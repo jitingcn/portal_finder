@@ -1,0 +1,15 @@
+node_modules/
+data/
+log/
+public/uploads/
+public/packs/
+spec/
+plugins/*
+test/
+doc/
+coverage/
+storage/
+docker/
+Dockerfile*
+.env.*
+*.md

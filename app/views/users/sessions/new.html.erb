@@ -1,0 +1,36 @@
+<% content_for :main_class do %>
+  justify-center
+<% end %>
+
+<div class="flex flex-col w-full items-center justify-center">
+  <div class="flex flex-col items-center bg-blue-200 bg-opacity-25 shadow-md rounded-md justify-center px-6 py-8">
+    <h2 class="text-2xl font-black"><%= t('.sign_in') %></h2>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => {class: 'm-2'}) do |f| %>
+      <div class="field mb-4">
+        <%= f.label :login %><br />
+        <%= f.text_field :login, autofocus: true, autocomplete: "username", class: "m-2 border-2" %>
+      </div>
+
+      <div class="field mb-4">
+        <%= f.label :password %><br />
+        <%= f.password_field :password, autocomplete: "current-password", class: "m-2 border-2" %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="field mb-6">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+      <% end %>
+      <div class="flex justify-center">
+        <button class="actions rounded border-2 border-solid px-3 py-1">
+          <%= f.submit t('.sign_in') %>
+        </button>
+      </div>
+
+    <% end %>
+
+    <%= render "users/shared/links" %>
+  </div>
+</div>

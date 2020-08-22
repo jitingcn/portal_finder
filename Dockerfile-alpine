@@ -1,0 +1,9 @@
+FROM jiting/rails-base-builder:alpine AS Builder
+
+FROM jiting/rails-base-production:alpine
+
+RUN apk add --no-cache libjpeg libpng imagemagick
+
+USER app
+
+CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
