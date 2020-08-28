@@ -36,7 +36,11 @@
         </svg>
         <span class="font-semibold text-indigo-800 text-lg tracking-tight">Portal Finder</span>
       </a>
-      <div class="block">
+      <div class="flex block items-center">
+        <% if user_signed_in? %>
+          <%= tag.span @current_user.login, class: "font-normal text-blue-700 mr-2" %>
+          <%= gravatar_for @current_user, img_class: "rounded-full w-8 border border-black mr-2" %>
+        <% end %>
         <button class="text-sm flex items-center px-2 py-1 border rounded border-black bg-res text-white hover:text-black hover:border-white">
           <% if user_signed_in? %>
             <%= link_to t('sign_out'), destroy_user_session_path, method: :delete %>

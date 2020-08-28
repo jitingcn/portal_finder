@@ -1,0 +1,7 @@
+%div
+  %div= portal.name
+  %div
+    %img(class="m-5 h-16 w-16 object-cover rounded-md" src="#{portal.image_url}")
+  %div= link_to 'Show', portal
+  %div= link_to 'Edit', edit_portal_path(portal)
+  %div= link_to 'Destroy', portal, :method => :delete, :data => { :confirm => 'Are you sure?' }

@@ -5,7 +5,7 @@ services:
     container_name: "portal_finder_postgresql"
     image: postgres:alpine
     ports:
-      - 5432
+      - 5432:5432
     environment:
       - POSTGRES_HOST_AUTH_METHOD=trust
     volumes:
@@ -23,7 +23,7 @@ services:
 
   app: &app_base
     container_name: "portal_finder_app"
-    image: jiting/portal_finder:alpine
+    image: jiting/portal_finder:latest
     env_file:
       - app.secret.env
       - app.local.env

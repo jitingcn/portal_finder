@@ -2,10 +2,10 @@
 const purgecss = require("@fullhuman/postcss-purgecss")({
   // Specify the paths to all of the template files in your project
   content: [
-    "./javascript/**/*.html.*",
-    "./app/views/*.html.*",
-    "./app/views/**/*.html.*",
-    "./app/helpers/application_helper.rb"
+    "./app/javascript/stylesheets/**/*.*css",
+    "./app/javascript/controllers/*.js",
+    "./app/views/**/*.*",
+    "./app/helpers/**/*.*",
   ],
 
   // This is the function used to extract class names from your templates
