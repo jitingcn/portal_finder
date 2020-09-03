@@ -389,10 +389,15 @@ module.exports = {
       full: "100%",
       screen: "100vh",
     },
-    minWidth: {
+    minWidth: (theme, { breakpoints }) => ({
+      ...theme("spacing"),
       "0": "0",
+      '1/4': '25%',
+      '1/2': '50%',
+      '3/4': '75%',
       full: "100%",
-    },
+      ...breakpoints(theme("screens")),
+    }),
     objectPosition: {
       bottom: "bottom",
       center: "center",
@@ -672,6 +677,7 @@ module.exports = {
       "700": "700ms",
       "1000": "1000ms",
     },
+    gradientColorStops: (theme) => theme("colors"),
     extend: {
       screens: {
         dark: { raw: "(prefers-color-scheme: dark)" },
@@ -802,6 +808,7 @@ module.exports = {
     transitionTimingFunction: ["responsive"],
     transitionDuration: ["responsive"],
     transitionDelay: ["responsive"],
+    gradientColorStops: ['responsive', 'hover', 'focus'],
   },
   corePlugins: {},
   plugins: [

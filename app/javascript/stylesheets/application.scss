@@ -1,8 +1,6 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-// Custom SCSS
-//@import "components/";
-//@import "components/";
-
-@import "tailwindcss/utilities";
+@import "components/flex-grid";
+@import "components/pagy-nav";

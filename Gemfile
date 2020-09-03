@@ -49,7 +49,7 @@ gem "rails-settings-cached", "~> 2.0"
 gem "leaflet-rails"
 gem "geocoder"
 
-gem "kaminari"
+gem "pagy", "~> 3.5"
 
 gem "delayed_job_active_record"
 gem "activerecord-session_store"

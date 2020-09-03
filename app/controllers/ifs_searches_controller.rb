@@ -37,7 +37,8 @@ class IfsSearchesController < ApplicationController
 
     respond_to do |format|
       if @ifs_search.save
-        format.html { redirect_to @ifs_search, notice: 'Ifs search was successfully created.' }
+        @ifs_search.delay.split_image
+        format.html { redirect_to ifs_searches_path, notice: 'Ifs search was successfully created.' }
         format.json { render :show, status: :created, location: @ifs_search }
       else
         format.html { render :new }
@@ -51,7 +52,7 @@ class IfsSearchesController < ApplicationController
   def update
     respond_to do |format|
       if @ifs_search.update(ifs_search_params)
-        format.html { redirect_to @ifs_search, notice: 'Ifs search was successfully updated.' }
+        format.html { redirect_to @ifs_searches_path, notice: 'Ifs search was successfully updated.' }
         format.json { render :show, status: :ok, location: @ifs_search }
       else
         format.html { render :edit }
@@ -78,6 +79,6 @@ class IfsSearchesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def ifs_search_params
-      params.fetch(:ifs_search, {})
+      params.fetch(:ifs_search, {}).permit(:title, :request, :user_id).merge(user_id: current_user.id)
     end
 end

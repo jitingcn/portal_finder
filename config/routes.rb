@@ -4,12 +4,10 @@ Rails.application.routes.draw do
   root "home#index"
 
   constraints(id: /[\d\.]+(,[\d\.]+)*/) do
-    concern :paginatable do
-      get "(page/:page)", action: :index, on: :collection, as: ""
-    end
-
-    resources :portals, concerns: :paginatable
+    resources :portals
   end
+
+  get "portals/(page/:page)", action: :index, controller: "portals"
 
   resources :ifs_searches
   devise_for :users, controllers: {

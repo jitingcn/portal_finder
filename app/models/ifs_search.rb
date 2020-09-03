@@ -6,6 +6,7 @@ class IfsSearch < ApplicationRecord
   has_many :ifs_search_results, foreign_key: "ifs_searches_id", dependent: :destroy  # -> { where ifs_searches_id: id },
 
   validates :user_id, presence: true
+  validates :title, presence: true
   validates :request, content_type: { in: %w[image/jpeg image/gif image/png],
                                     message: "must be a valid image format" },
             size: { less_than: 10.megabytes,

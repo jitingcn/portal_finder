@@ -5,6 +5,13 @@
       %ul
         - @ifs_search.errors.full_messages.each do |msg|
           %li= msg
-
+  .d(class="field mb-4")
+    = f.label :title, '标题'
+    %br
+    = f.text_field :title, class: "m-2 border-2"
+  .d(class="field mb-4")
+    = f.label :request, '图片'
+    %br
+    = f.file_field :request, class: "m-2 border-2"
   .actions
     = f.submit 'Save'

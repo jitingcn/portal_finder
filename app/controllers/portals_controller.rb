@@ -6,7 +6,7 @@ class PortalsController < ApplicationController
   # GET /portals.json
   def index
     @count = Portal.count
-    @portals = Portal.order(:latitude, :longitude).page(params[:page]).per(8)
+    @pagy, @portals = pagy(Portal.order(:latitude, :longitude))
   end
 
   # GET /portals/1

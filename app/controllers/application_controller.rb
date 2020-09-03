@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
+  include Pagy::Backend
+
   check_authorization unless: :devise_controller?
 
   protect_from_forgery prepend: true

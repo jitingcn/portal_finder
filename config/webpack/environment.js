@@ -1,4 +1,5 @@
 const { environment } = require('@rails/webpacker')
+const erb = require('./loaders/erb')
 const webpack = require('webpack')
 
 environment.plugins.append('Provide',
@@ -6,4 +7,5 @@ environment.plugins.append('Provide',
       L: 'leaflet',
       _: 'lodash'
     }))
+environment.loaders.prepend('erb', erb)
 module.exports = environment

@@ -7,6 +7,7 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+// import 'src/pagy.js.erb'
 import "core-js/stable"
 import 'leaflet'
 import 'leaflet-providers'

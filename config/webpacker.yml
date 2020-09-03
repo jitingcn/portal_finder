@@ -33,6 +33,7 @@ default: &default
     - .woff2
 
   extensions:
+    - .erb
     - .mjs
     - .js
     - .sass
@@ -69,7 +70,7 @@ development:
     headers:
       'Access-Control-Allow-Origin': '*'
     watch_options:
-      ignored: '**/node_modules/**'
+      ignored: ['**/node_modules/**', '**/docker/**']
 
 
 test:

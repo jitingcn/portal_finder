@@ -199,18 +199,6 @@ GEM
       ruby-vips (>= 2.0.17, < 3)
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
-    kaminari (1.2.1)
-      activesupport (>= 4.1.0)
-      kaminari-actionview (= 1.2.1)
-      kaminari-activerecord (= 1.2.1)
-      kaminari-core (= 1.2.1)
-    kaminari-actionview (1.2.1)
-      actionview
-      kaminari-core (= 1.2.1)
-    kaminari-activerecord (1.2.1)
-      activerecord
-      kaminari-core (= 1.2.1)
-    kaminari-core (1.2.1)
     leaflet-rails (1.6.0)
       rails (>= 4.2.0)
     listen (3.2.1)
@@ -241,6 +229,7 @@ GEM
       nenv (~> 0.1)
       shellany (~> 0.0)
     orm_adapter (0.5.0)
+    pagy (3.8.3)
     parallel (1.19.2)
     parser (2.7.1.4)
       ast (~> 2.4.1)
@@ -430,9 +419,9 @@ DEPENDENCIES
   http_accept_language
   image_processing (~> 1.2)
   jbuilder (~> 2.7)
-  kaminari
   leaflet-rails
   listen (~> 3.2)
+  pagy (~> 3.5)
   pg (>= 0.18, < 2.0)
   phashion!
   pry-byebug

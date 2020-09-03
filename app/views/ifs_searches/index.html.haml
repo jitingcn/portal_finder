@@ -3,21 +3,21 @@
 %table
   %thead
     %tr
-      %th search_id
-      %th image
-      %th result
-      %th manage
+      %th 标题
+      %th 图片
+      %th 结果
+      %th 管理
 
   %tbody
     - @ifs_searches.each do |ifs_search|
       %tr
-        %td= ifs_search.id
+        %td= ifs_search.title
         %td
           <img class="m-5 w-32 object-cover" src="#{url_for ifs_search.request.variant(resize_to_fit: [600, 600]).processed}"
         %td= link_to '详情', ifs_search
-        %td= link_to 'Edit', edit_ifs_search_path(ifs_search)
-        %td= link_to 'Destroy', ifs_search, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to '编辑', edit_ifs_search_path(ifs_search)
+        %td= link_to '删除', ifs_search, :method => :delete, :data => { :confirm => '你确定吗?' }
 
 %br
 
-= link_to 'New Ifs search', new_ifs_search_path
+= link_to '新的搜索', new_ifs_search_path
