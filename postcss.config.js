@@ -7,7 +7,7 @@ const purgecss = require("@fullhuman/postcss-purgecss")({
     "./app/views/**/*.*",
     "./app/helpers/**/*.*",
   ],
-
+  whitelistPatterns: [/leaflet/, /marker/],
   // This is the function used to extract class names from your templates
   defaultExtractor: (content) => {
     // Capture as liberally as possible, including things like `h-(screen-1.5)`
