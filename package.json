@@ -17,18 +17,18 @@
     "stimulus_reflex": "^3.3.0-pre3",
     "tailwindcss": "^1.7.6",
     "tailwindcss-dark-mode": "^1.1.6",
-    "turbolinks": "^5.2.0"
+    "turbolinks": "^5.2.0",
+    "postcss-nested": "^4.2.2",
+    "autoprefixer": "^9.8.6"
   },
   "version": "0.1.0",
   "devDependencies": {
-    "autoprefixer": "^9.8.6",
     "eslint": "^7.8.1",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-import-resolver-webpack": "^0.12.2",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-prettier": "^3.1.4",
-    "postcss-nested": "^4.2.2",
     "stylelint": "^13.7.0",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-standard": "^20.0.0",
