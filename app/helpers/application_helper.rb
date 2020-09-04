@@ -26,7 +26,7 @@ module ApplicationHelper
       type_class = 'bg-red-100 border-red-400 text-red-700' if type.to_sym == :alert
       message_tag = content_tag(:strong, message, class: 'font-medium mr-3')
       text = content_tag(:div, message_tag + raw(close_html),
-                         class: "border w-full mb-3 px-4 py-3 rounded relative #{type_class}",
+                         class: "border w-full mb-3 px-4 py-3 rounded relative max-w-screen-sm #{type_class}",
                          role: 'alert', 'data-controller': 'application')
       flash_messages << text if message
     end

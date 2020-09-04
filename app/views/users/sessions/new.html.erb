@@ -2,7 +2,7 @@
   justify-center
 <% end %>
 
-<div class="flex flex-col w-full items-center justify-center">
+<div class="flex flex-col w-full items-center justify-center max-w-screen-sm">
   <div class="flex flex-col items-center bg-blue-200 bg-opacity-25 shadow-md rounded-md justify-center px-6 py-8">
     <h2 class="text-2xl font-black"><%= t('.sign_in') %></h2>
 
@@ -31,6 +31,6 @@
 
     <% end %>
 
-    <%= render "users/shared/links" %>
+    <%== render "users/shared/links" %>
   </div>
 </div>

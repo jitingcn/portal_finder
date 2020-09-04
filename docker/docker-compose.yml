@@ -4,8 +4,9 @@ services:
   postgresql:
     container_name: "portal_finder_postgresql"
     image: postgres:alpine
+    restart: always
     ports:
-      - 5432:5432
+      - 5432
     environment:
       - POSTGRES_HOST_AUTH_METHOD=trust
     volumes:
@@ -14,6 +15,7 @@ services:
   redis:
     container_name: "portal_finder_redis"
     image: redis:alpine
+    restart: always
     ports:
       - 6379
     volumes:
@@ -24,6 +26,7 @@ services:
   app: &app_base
     container_name: "portal_finder_app"
     image: jiting/portal_finder:latest
+    restart: always
     env_file:
       - app.secret.env
       - app.local.env
@@ -45,5 +48,6 @@ services:
   worker:
     <<: *app_base
     container_name: "portal_finder_worker"
+    restart: always
     ports: []
     command: bundle exec rails jobs:work
