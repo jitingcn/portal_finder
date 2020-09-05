@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get "portals/(page/:page)", action: :index, controller: "portals"
 
   resources :ifs_searches
+  get "ifs/:uuid", action: :uuid, controller: "ifs_searches"
+
   devise_for :users, controllers: {
     session: "users/sessions",
     registrations: "users/registrations"

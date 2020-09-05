@@ -4,19 +4,26 @@
   %thead
     %tr
       %th 标题
+      %th uuid
       %th 图片
       %th 结果
-      %th 管理
+      - if current_user.admin?
+        %th user_id
+        %th 管理
 
   %tbody
     - @ifs_searches.each do |ifs_search|
       %tr
         %td= ifs_search.title
         %td
+          %a(href="/ifs/#{ifs_search.uuid}" target="_blank")= ifs_search.uuid
+        %td
           <img class="m-5 w-32 object-cover" src="#{url_for ifs_search.request.variant(resize_to_fit: [600, 600]).processed}"
         %td= link_to '详情', ifs_search
-        %td= link_to '编辑', edit_ifs_search_path(ifs_search)
-        %td= link_to '删除', ifs_search, :method => :delete, :data => { :confirm => '你确定吗?' }
+        - if current_user.admin?
+          %td= ifs_search.user_id
+          %td= link_to '编辑', edit_ifs_search_path(ifs_search)
+          %td= link_to '删除', ifs_search, :method => :delete, :data => { :confirm => '你确定吗?' }
 
 %br
 

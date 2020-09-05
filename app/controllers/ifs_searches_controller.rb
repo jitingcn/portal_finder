@@ -1,5 +1,7 @@
 class IfsSearchesController < ApplicationController
   load_and_authorize_resource
+  skip_authorize_resource only: :uuid
+  skip_authorization_check only: :uuid
   before_action :set_ifs_search, only: [:show, :edit, :update, :destroy]
 
   # GET /ifs_searches
@@ -21,6 +23,14 @@ class IfsSearchesController < ApplicationController
     # binding.pry
   end
 
+  def uuid
+    @ifs_search = IfsSearch.find_by(uuid: params[:uuid])
+    self.show
+    if @results
+      render "ifs_searches/show"
+    end
+  end
+
   # GET /ifs_searches/new
   def new
     @ifs_search = IfsSearch.new
@@ -33,7 +43,7 @@ class IfsSearchesController < ApplicationController
   # POST /ifs_searches
   # POST /ifs_searches.json
   def create
-    @ifs_search = IfsSearch.new(ifs_search_params)
+    @ifs_search = IfsSearch.new(ifs_search_params.merge(uuid: SecureRandom.uuid))
 
     respond_to do |format|
       if @ifs_search.save

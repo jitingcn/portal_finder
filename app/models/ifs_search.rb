@@ -19,14 +19,14 @@ class IfsSearch < ApplicationRecord
 
     width = img.columns
     height = img.rows
-    if (width > 4000) && (height > 3000)
+    if (width > 4000) && (height > 2000)
       img_list = []
-      slices = (0..width).step(500).to_a
+      slices = (0..width).step(300).to_a
       unless slices.last == width
         slices << width
       end
       (slices.length - 1).times do |i|
-        img_list << img.crop(slices[i], 0, slices[i + 1] - slices[i], height, true)
+        img_list << img.crop(slices[i], 60, slices[i + 1] - slices[i], height, true)
       end
       img_list.each do |img|
         img.fuzz = "5%"
