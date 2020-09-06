@@ -1,4 +1,4 @@
-import ApplicationController from './application_controller'
+import ApplicationController from "./application_controller";
 
 /* This is the custom StimulusReflex controller for IfsSearchReflex.
  * Learn more at: https://docs.stimulusreflex.com
@@ -34,42 +34,67 @@ export default class extends ApplicationController {
   //   console.error('updateError', error);
   //   element.innerText = 'Update Failed!'
   // }
-  static targets = [ "column" ]
+  static targets = ["column"];
   map;
 
-  connect () {
+  connect() {
     super.connect();
-    this.showColumn(0)
+    this.showColumn(0);
   }
 
   currentColumn(element, reflex) {
-    this.showColumn(parseInt(element.target.getAttribute('data-column-index')))
+    this.showColumn(parseInt(element.target.getAttribute("data-column-index")));
   }
 
   showColumn(index) {
-    this.index = index
-    let coordinates = this.columnTargets[index].getAttribute('data-coordinate-list')
+    this.index = index;
+    let coordinates = this.columnTargets[index].getAttribute(
+      "data-coordinate-list"
+    );
     this.columnTargets.forEach((el, i) => {
-      el.classList.toggle("bg-blue-500", index === i)
-    })
-    this.renderMap(coordinates)
+      el.classList.toggle("bg-blue-500", index === i);
+    });
+    this.renderMap(coordinates);
   }
 
   renderMap(coor) {
-    let portals = coor.split("|").map((x) => x.split(";")).map((x) => x.map((x) => x.split(",")))[0]  // .map(x=>parseFloat(x))
-    console.log(portals)
-    const neutaral_icon = L.icon({iconUrl: '/neutral.png', iconAnchor: [25, 25], popupAnchor: [0, -6],})
-    if ( this.map !== undefined ) this.map.remove();
-    this.map = L.map('canvas').setView(portals.find(el => el.length === 2), 15)
-    L.tileLayer.provider('CartoDB.DarkMatter').addTo(this.map)
+    let portals = coor
+      .split("|")
+      .map((x) => x.split(";"))
+      .map((x) => x.map((x) => x.split(",")))[0]; // .map(x=>parseFloat(x))
+    console.log(portals);
+    portals.map((x, i) => {
+      if (x[1] != undefined) {
+        console.log(`row: ${i+1}`)
+        console.log(
+          `https://intel.ingress.com/intel?ll=${x[0]},${x[1]}&z=15&pll=${x[0]},${x[1]}`
+        );
+      }
+    });
+    const neutaral_icon = L.icon({
+      iconUrl: "/neutral.png",
+      iconAnchor: [25, 25],
+      popupAnchor: [0, -6],
+    });
+    if (this.map !== undefined) this.map.remove();
+    this.map = L.map("canvas").setView(
+      portals.find((el) => el.length === 2),
+      15
+    );
+    L.tileLayer.provider("CartoDB.DarkMatter").addTo(this.map);
     let markers = portals.map((x, i) => {
       if (x.length === 2) {
-        return L.marker(x, {icon: neutaral_icon}).addTo(this.map);
+        return L.marker(x, { icon: neutaral_icon }).addTo(this.map);
       } else {
-        console.log(`missing marker for column: ${this.index+1}, row: ${i+1}`)
+        console.log(
+          `missing marker for column: ${this.index + 1}, row: ${i + 1}`
+        );
       }
-    })
-    let polyline = L.polyline(portals.filter(x=>x.length === 2), {color: '#66ccff'}).addTo(this.map);
+    });
+    let polyline = L.polyline(
+      portals.filter((x) => x.length === 2),
+      { color: "#66ccff" }
+    ).addTo(this.map);
     this.map.fitBounds(polyline.getBounds(), { padding: [10, 10] });
   }
 }
