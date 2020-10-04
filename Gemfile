@@ -14,7 +14,7 @@ gem "puma", github: "puma/puma"
 gem "rails" # , github: "rails/rails"
 gem "composite_primary_keys", github: "composite-primary-keys/composite_primary_keys"
 gem "redis", "~> 4.0"
-gem "sassc-rails", "~> 2.1"
+
 gem "turbolinks", "~> 5"
 gem "tzinfo-data", ">= 1.2019.1"
 gem "webpacker", "~> 5.2.1"

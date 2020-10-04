@@ -13,9 +13,9 @@ GIT
 
 GIT
   remote: https://github.com/puma/puma.git
-  revision: 6f0caa566773144ef1e94ceabba9d09ab37f2dc1
+  revision: 7d4df2931a9b9e19790cb0da4bd4aafc4c8efe3f
   specs:
-    puma (5.0.0.beta2)
+    puma (5.0.0)
       nio4r (~> 2.0)
 
 GEM
@@ -315,14 +315,6 @@ GEM
     ruby-vips (2.0.17)
       ffi (~> 1.9)
     rubyzip (2.3.0)
-    sassc (2.4.0)
-      ffi (~> 1.9)
-    sassc-rails (2.1.2)
-      railties (>= 4.0.0)
-      sassc (>= 2.0)
-      sprockets (> 3.0)
-      sprockets-rails
-      tilt
     seed_dump (3.3.1)
       activerecord (>= 4)
       activesupport (>= 4)
@@ -435,7 +427,6 @@ DEPENDENCIES
   rubocop (>= 0.72)
   rubocop-performance
   rubocop-rails
-  sassc-rails (~> 2.1)
   seed_dump
   selenium-webdriver
   sentry-raven
