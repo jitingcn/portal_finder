@@ -1,6 +1,12 @@
 module.exports = {
   purge: {
-    content: [],
+    content: [    
+      "./app/javascript/stylesheets/**/*.*css",
+      "./app/javascript/controllers/*.js",
+      "./app/views/**/*.*",
+      "./app/**/*.rb",
+      "./app/helpers/**/*.*",
+    ],
     options: {
       whitelist: ["mode-dark"],
     },
