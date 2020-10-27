@@ -18,7 +18,7 @@
         %td
           %a(href="/ifs/#{ifs_search.uuid}" target="_blank")= ifs_search.uuid
         %td
-          <img class="m-5 w-32 object-cover" src="#{url_for ifs_search.request.variant(resize_to_fit: [600, 600]).processed}"
+          <img class="m-5 w-32 h-32 object-cover" src="#{url_for ifs_search.request.variant(resize_to_fit: [600, 600]).processed}"
         %td= link_to '详情', ifs_search
         - if current_user.admin?
           %td= ifs_search.user_id

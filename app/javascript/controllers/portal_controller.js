@@ -26,7 +26,9 @@ export default class extends ApplicationController {
   map;
 
   connect () {
-    super.connect();
+    const event = document.createEvent("CustomEvent")
+    event.initCustomEvent("portal-connected", true, true, null)
+    this.element.dispatchEvent(event)
     if (this.canvasTargets.length !== 0) {
       this.showPortal()
     }

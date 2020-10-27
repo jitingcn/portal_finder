@@ -5,6 +5,7 @@ const purgecss = require("@fullhuman/postcss-purgecss")({
     "./app/javascript/stylesheets/**/*.*css",
     "./app/javascript/controllers/*.js",
     "./app/views/**/*.*",
+    "./app/**/*.rb",
     "./app/helpers/**/*.*",
   ],
   whitelistPatterns: [/leaflet/, /marker/],

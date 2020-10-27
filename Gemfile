@@ -32,7 +32,7 @@ gem "hamlit-rails"
 gem "rails-i18n", "~> 6.0.0"
 
 gem "phashion", github: "jitingcn/phashion"
-gem "rmagick"  #, require: false
+gem "rmagick"  # , require: false
 
 gem "active_storage_validations"
 
@@ -53,6 +53,8 @@ gem "pagy", "~> 3.5"
 
 gem "delayed_job_active_record"
 gem "activerecord-session_store"
+
+gem "lograge"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.4.2", require: false
@@ -86,6 +88,7 @@ group :development do
 
   gem "pry-byebug"
   gem "pry-rails"
+  gem "solargraph"
 end
 
 group :test do
@@ -93,4 +96,3 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
-

@@ -84,7 +84,12 @@ export default class extends ApplicationController {
     L.tileLayer.provider("CartoDB.DarkMatter").addTo(this.map);
     let markers = portals.map((x, i) => {
       if (x.length === 2) {
-        return L.marker(x, { icon: neutaral_icon }).addTo(this.map);
+        return L.marker(x, { icon: neutaral_icon }).bindPopup(`<div class='h-30' id='popup-${x.join().replace(/[\D]/g, "")}' data-controller="portal" data-id="${x.join().replace(/[\D]/g, "")}" data-row="${i}" data-col="${this.index}" data-portal-id="${x}">fetch data</div>`, {
+          maxWidth : 800,
+          minWidth : 150,
+          autoPan : true,
+          autoPanPadding : L.point(100, 150),
+      }).addTo(this.map);
       } else {
         console.log(
           `missing marker for column: ${this.index + 1}, row: ${i + 1}`
@@ -96,5 +101,9 @@ export default class extends ApplicationController {
       { color: "#66ccff" }
     ).addTo(this.map);
     this.map.fitBounds(polyline.getBounds(), { padding: [10, 10] });
+  }
+
+  portalLog(event) {
+    this.stimulate("IfsSearch#info", event.target)
   }
 }

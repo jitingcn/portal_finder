@@ -16,7 +16,7 @@
     "postcss-nested": "^4.2.2",
     "rails-erb-loader": "^5.5.2",
     "stimulus": "^1.1.1",
-    "stimulus_reflex": "^3.3.0-pre3",
+    "stimulus_reflex": "3.3.0",
     "tailwindcss": "^1.7.6",
     "tailwindcss-dark-mode": "^1.1.6",
     "turbolinks": "^5.2.0"

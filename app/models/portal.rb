@@ -27,6 +27,10 @@ class Portal < ApplicationRecord
     image
   end
 
+  def intel_link
+    "https://intel.ingress.com/intel?ll=#{coordinate}&z=15&pll=#{coordinate}"
+  end
+
   def find_duplicate(debug = false)
     dup = []
     portals = Portal.where.not(latitude: self.latitude).where.not(longitude: self.longitude).map{|x| x.to_phashion}
