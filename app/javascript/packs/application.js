@@ -7,6 +7,13 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+
+import Turbolinks from 'turbolinks';
+window.Turbolinks = Turbolinks;
+
+import TurbolinksPrefetch from 'turbolinks-prefetch';
+TurbolinksPrefetch.start();
+
 // import 'src/pagy.js.erb'
 import "core-js/stable"
 import 'leaflet'

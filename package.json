@@ -19,7 +19,8 @@
     "stimulus_reflex": "3.3.0",
     "tailwindcss": "^1.7.6",
     "tailwindcss-dark-mode": "^1.1.6",
-    "turbolinks": "^5.2.0"
+    "turbolinks": "^5.2.0",
+    "turbolinks-prefetch": "^1.0.3"
   },
   "version": "0.1.0",
   "devDependencies": {
