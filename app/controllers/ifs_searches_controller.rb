@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class IfsSearchesController < ApplicationController
   load_and_authorize_resource
   skip_authorize_resource only: :uuid
@@ -48,7 +50,7 @@ class IfsSearchesController < ApplicationController
     respond_to do |format|
       if @ifs_search.save
         @ifs_search.delay.split_image
-        format.html { redirect_to ifs_searches_path, notice: 'Ifs search was successfully created.' }
+        format.html { redirect_to ifs_searches_path, notice: "Ifs search was successfully created." }
         format.json { render :show, status: :created, location: @ifs_search }
       else
         format.html { render :new }
@@ -62,7 +64,7 @@ class IfsSearchesController < ApplicationController
   def update
     respond_to do |format|
       if @ifs_search.update(ifs_search_params)
-        format.html { redirect_to @ifs_searches_path, notice: 'Ifs search was successfully updated.' }
+        format.html { redirect_to @ifs_searches_path, notice: "Ifs search was successfully updated." }
         format.json { render :show, status: :ok, location: @ifs_search }
       else
         format.html { render :edit }
@@ -76,7 +78,7 @@ class IfsSearchesController < ApplicationController
   def destroy
     @ifs_search.destroy
     respond_to do |format|
-      format.html { redirect_to ifs_searches_url, notice: 'Ifs search was successfully destroyed.' }
+      format.html { redirect_to ifs_searches_url, notice: "Ifs search was successfully destroyed." }
       format.json { head :no_content }
     end
   end

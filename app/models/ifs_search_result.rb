@@ -22,9 +22,19 @@ class IfsSearchResult < ApplicationRecord
     end
   end
 
+  def get_phashion_object(id: nil, hash: nil)
+    return unless id && hash
+
+    image = Phashion::Image.new(id)
+    image.instance_variable_set(:@hash, hash.to_i)
+    image
+  end
+
   def find_duplicate(debug = false)
     dup = []
-    portals = Portal.where.not(image_hash: nil).map { |x| x.to_phashion }
+    portals = Portal.where.not(image_hash: nil).pluck(:latitude, :longitude, :image_hash).map do |latitude, longitude, image_hash|
+      self.get_phashion_object(id: [latitude, longitude], hash: image_hash)
+    end
     current_portal = self.to_phashion
     portals.each do |portal|
       if current_portal.duplicate?(portal, threshold: 8)

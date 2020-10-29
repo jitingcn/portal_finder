@@ -1,4 +1,6 @@
-require 'test_helper'
+# frozen_string_literal: true
+
+require "test_helper"
 
 class IfsSearchesControllerTest < ActionDispatch::IntegrationTest
   setup do
@@ -16,8 +18,8 @@ class IfsSearchesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create ifs_search" do
-    assert_difference('IfsSearch.count') do
-      post ifs_searches_url, params: { ifs_search: {  } }
+    assert_difference("IfsSearch.count") do
+      post ifs_searches_url, params: { ifs_search: {} }
     end
 
     assert_redirected_to ifs_search_url(IfsSearch.last)
@@ -34,12 +36,12 @@ class IfsSearchesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update ifs_search" do
-    patch ifs_search_url(@ifs_search), params: { ifs_search: {  } }
+    patch ifs_search_url(@ifs_search), params: { ifs_search: {} }
     assert_redirected_to ifs_search_url(@ifs_search)
   end
 
   test "should destroy ifs_search" do
-    assert_difference('IfsSearch.count', -1) do
+    assert_difference("IfsSearch.count", -1) do
       delete ifs_search_url(@ifs_search)
     end
 

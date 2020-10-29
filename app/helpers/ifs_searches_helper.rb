@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module IfsSearchesHelper
   def coordinates(items)
     items.map do |item|

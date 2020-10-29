@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "test_helper"
 
 class PortalsControllerTest < ActionDispatch::IntegrationTest
@@ -16,8 +18,8 @@ class PortalsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create portal" do
-    assert_difference('Portal.count') do
-      post portals_url, params: { portal: {  } }
+    assert_difference("Portal.count") do
+      post portals_url, params: { portal: {} }
     end
 
     assert_redirected_to portal_url(Portal.last)
@@ -34,12 +36,12 @@ class PortalsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update portal" do
-    patch portal_url(@portal), params: { portal: {  } }
+    patch portal_url(@portal), params: { portal: {} }
     assert_redirected_to portal_url(@portal)
   end
 
   test "should destroy portal" do
-    assert_difference('Portal.count', -1) do
+    assert_difference("Portal.count", -1) do
       delete portal_url(@portal)
     end
 

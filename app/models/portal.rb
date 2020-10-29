@@ -33,7 +33,7 @@ class Portal < ApplicationRecord
 
   def find_duplicate(debug = false)
     dup = []
-    portals = Portal.where.not(latitude: self.latitude).where.not(longitude: self.longitude).map{|x| x.to_phashion}
+    portals = Portal.where.not(latitude: self.latitude).where.not(longitude: self.longitude).map { |x| x.to_phashion }
     current_portal = self.to_phashion
     portals.each do |portal|
       if current_portal.duplicate?(portal, threshold: 8)
