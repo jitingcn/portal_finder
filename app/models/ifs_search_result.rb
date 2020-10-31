@@ -37,8 +37,9 @@ class IfsSearchResult < ApplicationRecord
     end
     current_portal = self.to_phashion
     portals.each do |portal|
-      if current_portal.duplicate?(portal, threshold: 20)
-        dup << portal.filename
+      if current_portal.duplicate?(portal, threshold: 17)
+        distance = current_portal.distance_from(portal)
+        dup << [portal.filename, distance]
       end
     end
     if debug && dup.size > 0
@@ -48,7 +49,8 @@ class IfsSearchResult < ApplicationRecord
       end
     end
     if dup.size > 0
-      self.duplicate = dup.first
+      dup.sort_by! { |x, y| y }
+      self.duplicate = dup.first.first
       self.save
     end
     self
