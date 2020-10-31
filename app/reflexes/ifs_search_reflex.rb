@@ -32,7 +32,7 @@ class IfsSearchReflex < ApplicationReflex
       morph "#popup-#{id}", "no information" # :nothing
       return
     end
-    img_url = Rails.application.routes.url_helpers.rails_representation_url(search_result.result.variant(resize_to_limit: [600, 600]).processed, only_path: true)
+    img_url = Rails.application.routes.url_helpers.rails_blob_path(search_result.result, only_path: true)
     morph "#popup-#{id}", "<div class='mb-1 font-bold text-xl'>#{portal.name}</div><div class='mb-2 text-xs font-thin'>#{portal.coordinate}</div><div class='mb-1 w-32 h-20'><img class='w-32 h-20 object-cover' src='#{img_url}'></div><a class='text-xl' href='#{portal.intel_link}' target='_blank' rel='noopener noreferrer'>Intel Link</a>"
   end
 end

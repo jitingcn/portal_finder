@@ -5,7 +5,6 @@ test:
 local:
   service: Disk
   root: <%= Rails.root.join("storage") %>
-#  public: true
 
 # Use rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
 # amazon:
@@ -29,7 +28,16 @@ local:
 #   storage_access_key: <%= Rails.application.credentials.dig(:azure_storage, :storage_access_key) %>
 #   container: your_container_name
 
-# mirror:
-#   service: Mirror
-#   primary: local
-#   mirrors: [ amazon, google, microsoft ]
+backblaze:
+  service: Backblaze
+  bucket_name: <%= Rails.application.credentials.dig(:backblaze, :bucket_name) %>
+  bucket_id: <%= Rails.application.credentials.dig(:backblaze, :bucket_id) %>
+  key_id: <%= Rails.application.credentials.dig(:backblaze, :key_id) %>
+  key_token: <%= Rails.application.credentials.dig(:backblaze, :key_token) %>
+  endpoint: <%= Rails.application.credentials.dig(:backblaze, :endpoint) %>
+
+mirror:
+  service: Mirror
+  primary: local
+  mirrors: 
+    - backblaze
