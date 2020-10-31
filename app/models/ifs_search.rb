@@ -91,7 +91,7 @@ class IfsSearch < ApplicationRecord
     def find_step(img, bg_pixel)
       width = img.columns
       height = img.rows
-      tmp_img = img.crop(0, 0, width, (height/4).to_i, true)
+      tmp_img = img.crop(0, 0, width, (height/2).to_i, true)
       cols = tmp_img.columns
       rows = tmp_img.rows
       match_set = []
