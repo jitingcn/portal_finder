@@ -31,7 +31,7 @@ class Portal < ApplicationRecord
     "https://intel.ingress.com/intel?ll=#{coordinate}&z=15&pll=#{coordinate}"
   end
 
-  def find_duplicate(debug = false)
+  def find_duplicate(debug: false)
     dup = []
     portals = Portal.where.not(latitude: self.latitude).where.not(longitude: self.longitude).map { |x| x.to_phashion }
     current_portal = self.to_phashion
@@ -50,7 +50,7 @@ class Portal < ApplicationRecord
     dup
   end
 
-  def set_image_hash(force = false)
+  def set_image_hash(force: false)
     self.image_hash = nil if force
 
     if self.image_hash.nil? && !self.latitude.nil? && !self.longitude.nil?

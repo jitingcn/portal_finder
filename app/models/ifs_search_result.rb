@@ -30,7 +30,7 @@ class IfsSearchResult < ApplicationRecord
     image
   end
 
-  def find_duplicate(debug = false)
+  def find_duplicate(debug: false)
     dup = []
     portals = Portal.where.not(image_hash: nil).pluck(:latitude, :longitude, :image_hash).map do |latitude, longitude, image_hash|
       self.get_phashion_object(id: [latitude, longitude], hash: image_hash)
@@ -44,8 +44,8 @@ class IfsSearchResult < ApplicationRecord
     end
     if debug && dup.size > 0
       puts "find duplicate portals: "
-      dup.each do |portal|
-        puts Portal.find(portal).to_json
+      dup.sort_by { |x, y| y }.each do |portal, distance|
+        puts "distance: #{distance} | portal: #{portal}"
       end
     end
     if dup.size > 0
