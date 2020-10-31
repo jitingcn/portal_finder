@@ -37,7 +37,7 @@ class IfsSearchResult < ApplicationRecord
     end
     current_portal = self.to_phashion
     portals.each do |portal|
-      if current_portal.duplicate?(portal, threshold: 8)
+      if current_portal.duplicate?(portal, threshold: 20)
         dup << portal.filename
       end
     end
