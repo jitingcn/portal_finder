@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :portals
   end
 
+  get "portals/search", action: :search, controller: "portals"
+
   get "portals/(page/:page)", action: :index, controller: "portals"
 
   resources :ifs_searches

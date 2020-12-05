@@ -11,6 +11,9 @@ class PortalsController < ApplicationController
     @pagy, @portals = pagy(Portal.order(:latitude, :longitude))
   end
 
+  def search
+  end
+
   # GET /portals/1
   # GET /portals/1.json
   def show
