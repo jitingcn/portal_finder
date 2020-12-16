@@ -15,7 +15,7 @@ export default class extends ApplicationController {
    * By default, StimulusReflex overrides the -connect- method so make sure you
    * call super if you intend to do anything else when this controller connects.
   */
-  static targets = ["input", "list"]
+  static targets = ["input", "result", "oldresult"]
 
   connect () {
     super.connect()
@@ -47,7 +47,8 @@ export default class extends ApplicationController {
       let image = getBase64(file);
       image.then(result => {
         document.getElementById('input').innerHTML = '<img id="request-image" class="object-contain" src="' + result + '" alt="input">'
-        // console.log(result)
+        this.oldresultTarget.insertAdjacentHTML('beforeend', this.resultTarget.innerHTML)
+        this.resultTarget.innerHTML = ''
         this.stimulate("PortalSearch#run", result)
       })
     }

@@ -52,6 +52,7 @@ class PortalSearchReflex < ApplicationReflex
     dup.each do |coor, i|
       render_ctx += "<div>confidence:#{i}</div></br><div>https://intel.ingress.com/?pll=#{coor[0]},#{coor[1]}</div>"
     end
-    morph '#results', "<div class='' id='result'>#{render_ctx}</div>"
+    time = Time.now.to_i
+    morph '#result', "<div class='border-2 border-black mb-2' id='result-#{time}'>#{render_ctx}</div>"
   end
 end
