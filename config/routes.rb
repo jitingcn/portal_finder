@@ -15,8 +15,8 @@ Rails.application.routes.draw do
   get "ifs/:uuid", action: :uuid, controller: "ifs_searches"
 
   devise_for :users, controllers: {
-    session: "users/sessions",
-    registrations: "users/registrations"
+      session: "users/sessions",
+      registrations: "users/registrations"
   }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

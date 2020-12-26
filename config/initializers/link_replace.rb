@@ -2,10 +2,10 @@
 
 module ActionView
   class Template
-    def render(view, locals, buffer = ActionView::OutputBuffer.new, &block)
+    def render(view, locals, buffer = ActionView::OutputBuffer.new, add_to_stack: true, &block)
       body = instrument_render_template do
         compile!(view)
-        view._run(method_name, self, locals, buffer, &block)
+        view._run(method_name, self, locals, buffer, add_to_stack: add_to_stack, &block)
       end
       doc = Nokogiri::HTML(body)
       doc.css("img").each do |img|

@@ -3,16 +3,16 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "2.7.2"
+ruby "3.0.0"
 
 gem "bcrypt", "~> 3.1.7"
 gem "jbuilder", "~> 2.7"
 # gem 'jieba_rb'
 gem "pg", ">= 0.18", "< 2.0"
 # gem 'pghero'
-gem "puma", github: "puma/puma"
+gem "puma"
 gem "rails" # , github: "rails/rails"
-gem "composite_primary_keys", github: "composite-primary-keys/composite_primary_keys"
+gem "composite_primary_keys", github: "codeodor/composite_primary_keys", branch: "ar6.1"
 gem "redis", "~> 4.0"
 
 gem "turbolinks", "~> 5"
@@ -52,7 +52,7 @@ gem "geocoder"
 gem "pagy", "~> 3.5"
 
 gem "delayed_job_active_record"
-gem "activerecord-session_store"
+gem "activerecord-session_store", github: "rails/activerecord-session_store"
 
 gem "lograge"
 
@@ -69,8 +69,6 @@ group :development do
   gem "seed_dump"
   gem "amazing_print"
   gem "annotate"
-  gem "better_errors"
-  gem "binding_of_caller"
   gem "faker", require: false
   gem "guard", ">= 2.2.2", require: false
   gem "guard-bundler", require: false
