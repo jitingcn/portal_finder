@@ -384,6 +384,10 @@ GEM
     unicode-display_width (1.7.0)
     view_component (2.24.0)
       activesupport (>= 5.0.0, < 7.0)
+    view_component_reflex (3.0.4)
+      rails (>= 5.2, < 7.0)
+      stimulus_reflex (>= 3.4.0)
+      view_component
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.1.0)
@@ -468,6 +472,7 @@ DEPENDENCIES
   turbolinks (~> 5)
   tzinfo-data (>= 1.2019.1)
   view_component
+  view_component_reflex
   web-console (>= 3.3.0)
   webdrivers
   webpacker (~> 5.2.1)

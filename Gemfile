@@ -55,6 +55,7 @@ gem "delayed_job_active_record"
 gem "activerecord-session_store", github: "rails/activerecord-session_store"
 
 gem "view_component", require: "view_component/engine"
+gem 'view_component_reflex'
 
 gem "lograge"
 
