@@ -382,6 +382,8 @@ GEM
     tzinfo-data (1.2020.5)
       tzinfo (>= 1.0.0)
     unicode-display_width (1.7.0)
+    view_component (2.24.0)
+      activesupport (>= 5.0.0, < 7.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.1.0)
@@ -465,6 +467,7 @@ DEPENDENCIES
   stimulus_reflex (~> 3.2)
   turbolinks (~> 5)
   tzinfo-data (>= 1.2019.1)
+  view_component
   web-console (>= 3.3.0)
   webdrivers
   webpacker (~> 5.2.1)

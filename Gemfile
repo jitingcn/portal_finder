@@ -54,6 +54,8 @@ gem "pagy", "~> 3.5"
 gem "delayed_job_active_record"
 gem "activerecord-session_store", github: "rails/activerecord-session_store"
 
+gem "view_component", require: "view_component/engine"
+
 gem "lograge"
 
 # Reduces boot times through caching; required in config/boot.rb
