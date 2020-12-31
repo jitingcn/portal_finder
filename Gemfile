@@ -65,7 +65,6 @@ gem "bootsnap", ">= 1.4.2", require: false
 group :development, :test do
   gem "break"
   gem "byebug"
-  gem "spring"
 end
 
 group :development do
@@ -78,7 +77,6 @@ group :development do
   gem "guard-livereload", require: false
   gem "guard-minitest", require: false
   gem "listen", "~> 3.2"
-  gem "spring-watcher-listen", "~> 2.0.0"
   gem "web-console", ">= 3.3.0"
 
   gem "brakeman", ">= 4.0", require: false
