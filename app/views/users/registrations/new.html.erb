@@ -32,9 +32,7 @@
         <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "m-2 border-2" %>
       </div>
       <div class="flex justify-center">
-        <button class="actions rounded border-2 border-solid px-3 py-1">
-          <%= f.submit t('.sign_up') %>
-        </button>
+        <%= f.submit t('.sign_up'), class: "actions rounded border-2 border-solid px-3 py-1 board-res bg-gray-100" %>
       </div>
     <% end %>
 

@@ -1,12 +1,17 @@
-%div(class="w-4/5" data-controller="portal-search" data-action="paste->portal-search#paste" data-reflex-root)
-  %section#search(class="" data-reflex-permanent)
-    %header(class="flex flex-col items-center justify-center")
-      %h1(class='mb-2') 在方框内黏贴portal图片
-      %span(class='mb-2 flex w-full h-48 border-blue-600 border-2' data-target="portal-search.input" id="input")
-        -#%input(type="file" autofocus="autofocus" accept="image/*")
+%div(class="hidden md:grid grid-cols-2 gap-8 w-full h-full px-8" data-controller="portal-search" data-action="paste->portal-search#paste" data-reflex-root)
+  %div(class="flex flex-col")
+    %div#search(class="w-full mb-4" data-reflex-permanent)
+      %section(class="flex flex-col items-center justify-center")
+        %div(class='mb-2 flex items-center justify-center overflow-hidden w-full h-48 rounded-lg shadow-lg bg-res bg-opacity-25 hover:bg-indigo-400' data-target="portal-search.input" id="input")
+        %p(class="absolute") 在框内粘贴 portal 图片
 
-  %section(class="" id="results")
-    %h1 current result
-    %div(class="" id="result" data-target="portal-search.result")
-    %h1 old result
+    %section(class="flex flex-grow flex-col items-center rounded-lg shadow-lg bg-blue-100 bg-opacity-50" id="results")
+      %p(class="px-4 py-2") 当前查询结果
+      %div(class="px-4 py-2" id="result" data-target="portal-search.result")
+  %section(class="flex flex-col items-center rounded-lg shadow-lg bg-blue-100 bg-opacity-50" id="history")
+    %p(class="px-4 py-2") 搜索历史（本地保存）
     %div(class="" id="old-result" data-target="portal-search.oldresult")
+
+%div(class="w-full h-full flex flex-col items-center justify-center md:hidden")
+  %p(class="text-3xl") 请使用PC访问或拉大窗口
+  %p(class="text-3xl") (当前宽度小于 768px)

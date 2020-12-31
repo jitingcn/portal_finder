@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
+  if @stimulus_reflex
+    render layout: false
+  end
+
   include Pagy::Backend
 
   check_authorization unless: :devise_controller?

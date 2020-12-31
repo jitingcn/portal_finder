@@ -4,7 +4,7 @@
 
 <div class="flex flex-col w-full items-center justify-center max-w-screen-sm">
   <div class="flex flex-col items-center bg-blue-200 bg-opacity-25 shadow-md rounded-md justify-center px-6 py-8">
-    <h2 class="text-2xl font-black"><%= t('.sign_in') %></h2>
+<!--    <h2 class="text-2xl font-black"><%#= t('.sign_in') %></h2>-->
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => {class: 'm-2'}) do |f| %>
       <div class="field mb-4">
@@ -24,9 +24,7 @@
         </div>
       <% end %>
       <div class="flex justify-center">
-        <button class="actions rounded border-2 border-solid px-3 py-1">
-          <%= f.submit t('.sign_in') %>
-        </button>
+        <%= f.submit t('.sign_in'), class: "actions rounded border-2 border-solid px-3 py-1 border-res bg-gray-100" %>
       </div>
 
     <% end %>

@@ -1,5 +1,4 @@
 import ApplicationController from './application_controller'
-
 /* This is the custom StimulusReflex controller for the PortalSearch Reflex.
  * Learn more at: https://docs.stimulusreflex.com
  */
@@ -46,7 +45,7 @@ export default class extends ApplicationController {
       }
       let image = getBase64(file);
       image.then(result => {
-        document.getElementById('input').innerHTML = '<img id="request-image" class="object-contain" src="' + result + '" alt="input">'
+        document.getElementById('input').innerHTML = '<img id="request-image" class="z-50 w-full h-48 object-contain" src="' + result + '" alt="input">'
         this.oldresultTarget.insertAdjacentHTML('beforeend', this.resultTarget.innerHTML)
         this.resultTarget.innerHTML = ''
         this.stimulate("PortalSearch#run", result)

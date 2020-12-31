@@ -1,0 +1,10 @@
+%div(class="rounded-lg shadow-md bg-gray-400 flex w-full h-24 mb-4" data-controller="clipboard" raw="#{@raw}")
+  %div(class="rounded-l-lg overflow-hidden w-1/3 h-24 mr-2")
+    = image_tag @image_url, class: "w-full h-full object-cover", alt: @coordinate
+  %div(class="w-2/3 flex flex-col my-1")
+    %div(class="inline flex flex-col justify-between mb-1 mr-2")
+      %span(class="text-lg font-medium truncate")=@name
+      %span(class="text-xs font-light self-end truncate")=@coordinate
+    %div(class="flex flex-auto items-center justify-between mr-2")
+      = link_to "前往 Intel", @link, target: "_blank", rel: "noopener noreferrer", class: "mr-2"
+      %button(class="mr-2" data-clipboard-text="#{@link}" data-target="clipboard.link") copy link

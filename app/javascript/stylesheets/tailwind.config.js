@@ -4,7 +4,7 @@ module.exports = {
       "./app/javascript/stylesheets/**/*.*css",
       "./app/javascript/controllers/*.js",
       "./app/views/**/*.*",
-      "./app/**/*.rb",
+      "./app/**/*.*",
       "./app/helpers/**/*.*",
     ],
     options: {
