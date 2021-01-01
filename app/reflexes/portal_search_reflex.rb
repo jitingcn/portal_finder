@@ -48,11 +48,18 @@ class PortalSearchReflex < ApplicationReflex
       puts e.message
       f.close!
     end
+    dup = dup.sort_by { |ctx| ctx[1] }.map { |ctx| ctx[0] }[..6]
     render_ctx = ""
-    dup.each do |coor, i|
-      render_ctx += render(PortalSearchResultItemComponent.new(coordinate: coor), layout: false)
+    dup.each do |ctx|
+      render_ctx += render(PortalSearchResultItemComponent.new(coordinate: ctx), layout: false)
     end
-    time = Time.now.to_i
-    morph '#result', render_ctx
+    if render_ctx.empty?
+      render_ctx = %(
+      <div role="alert"class="border w-full mb-3 px-4 py-3 rounded-lg relative max-w-screen-sm bg-red-100 border-red-400 text-red-700 text-center">
+        <strong class="font-medium text-center">未找到结果</strong>
+      </div>
+      )
+    end
+    morph '#results', render_ctx
   end
 end

@@ -1,5 +1,6 @@
 import ApplicationController from './application_controller'
 import ClipboardJS from 'clipboard'
+import {Notyf} from "notyf";
 /* This is the custom StimulusReflex controller for the Clipboard Reflex.
  * Learn more at: https://docs.stimulusreflex.com
  */
@@ -16,23 +17,28 @@ export default class extends ApplicationController {
    * call super if you intend to do anything else when this controller connects.
   */
   static targets = ["link"]
+  clipboard
 
   connect () {
     super.connect()
+    this.clipboard = new ClipboardJS(this.linkTarget);
+  }
 
-    const clipboard = new ClipboardJS(this.linkTarget);
-
-    clipboard.on('success', function(e) {
+  event() {
+    const notyf = new Notyf();
+    this.clipboard.on('success', function(e) {
       console.info('Action:', e.action);
       console.info('Text:', e.text);
       console.info('Trigger:', e.trigger);
 
       e.clearSelection();
+      notyf.success('链接已复制');
     });
 
-    clipboard.on('error', function(e) {
+    this.clipboard.on('error', function(e) {
       console.error('Action:', e.action);
       console.error('Trigger:', e.trigger);
+      notyf.error('复制失败');
     });
   }
 

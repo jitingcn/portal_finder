@@ -11,7 +11,7 @@ class PortalSearchResultItemComponent < ViewComponent::Base
     return unless portal
     @name = portal.name
     @coordinate = portal.coordinate
-    @image_url = portal.image_url
+    @image_url = portal.image_url.gsub("http://lh3.googleusercontent.com/", ENV.fetch("IMG_PROXY") { "https://lh3.googleusercontent.com/" })
     @link = "https://intel.ingress.com/?pll=#{portal.coordinate}"
     @raw = { "name": @name, "coordinate": @coordinate, "image_url": @image_url }.to_json
   end
