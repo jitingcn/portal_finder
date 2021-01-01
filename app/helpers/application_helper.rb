@@ -21,6 +21,7 @@ module ApplicationHelper
     )
 
     flash.each do |type, message|
+      next unless message.is_a? String
       type_class = ""
       type_class = "bg-green-100 border-green-400 text-green-700" if type.to_sym == :notice
       type_class = "bg-red-100 border-red-400 text-red-700" if type.to_sym == :alert
