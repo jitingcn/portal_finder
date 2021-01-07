@@ -68,12 +68,12 @@ export default class extends ApplicationController {
     document.getElementById("history").innerHTML = ""
     let html = ""
     history.forEach(function (e) {
-      html += `<div class="rounded-lg shadow-md bg-gradient-to-r from-green-300 to-blue-400 flex w-full h-24 mb-2" data-controller="clipboards">
-<div class="rounded-l-lg overflow-hidden w-1/3 h-24 mr-2">
+      html += `<div class="rounded-lg shadow-md bg-gradient-to-r from-green-300 to-blue-400 flex w-full h-32 mb-2" data-controller="clipboards">
+<div class="rounded-l-lg overflow-hidden w-1/3 h-32 mr-2">
 <img class="w-full h-full object-cover" alt="${e.name}" src="${e.image_url}">
 </div>
 <div class="w-2/3 flex flex-col my-1">
-<div class="inline flex flex-col justify-between mb-1 mr-2">
+<div class="inline flex flex-col justify-between mt-2 mb-1 mr-2">
 <span class="text-lg font-medium truncate">${e.name}</span>
 <span class="text-xs font-normal self-end truncate">${e.coordinate}</span>
 </div>
@@ -84,13 +84,15 @@ export default class extends ApplicationController {
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
 </svg>
 </a>
-<button class="mr-2 w-6" data-action="clipboards#event" data-clipboard-text="https://intel.ingress.com/?pll=${e.coordinate}" data-clipboards-target="link">
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+<button class="mr-2 flex" data-action="clipboards#event" data-clipboard-text="https://intel.ingress.com/?pll=${e.coordinate}" data-clipboards-target="link">
+<span class="mr-1">Copy</span>
+<svg class="w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
 </svg>
 </button>
-<button class="mr-2 w-6" data-action="portal-search#remove" data-controller="portal-search" data-portal-search-result-name-value="${e.name}">
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+<button class="mr-2 flex" data-action="portal-search#remove" data-controller="portal-search" data-portal-search-result-name-value="${e.name}">
+  <span class="mr-1">Remove</span>
+  <svg class="w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
   </svg>
 </button></div></div></div>`

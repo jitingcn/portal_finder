@@ -1,14 +1,14 @@
-%div(class="hidden md:grid grid-cols-2 gap-8 w-full h-full px-8" data-controller="portal-search" data-action="paste->portal-search#paste" data-reflex-root)
-  %div(class="flex flex-col")
+%div(class="hidden md:flex gap-x-4 w-full h-full px-8" data-controller="portal-search" data-action="paste->portal-search#paste" data-reflex-root)
+  %div(class="flex flex-col w-1/2 flex-none")
     %div#search(class="w-full mb-4" data-reflex-permanent)
       %section(class="flex flex-col items-center justify-center")
-        %div(class='z-20 mb-2 flex items-center justify-center overflow-hidden w-full h-48 rounded-lg shadow-lg bg-res bg-opacity-25 hover:bg-indigo-400' data-portal-search-target="input" id="input")
+        %div(class='z-20 mb-2 flex items-center justify-center overflow-hidden w-full h-56 rounded-lg shadow-lg bg-res bg-opacity-25 hover:bg-indigo-400' data-portal-search-target="input" id="input")
         %p(class="z-10 absolute text-xl") 在框内粘贴 portal 图片
 
     %section(class="flex flex-grow flex-col items-center rounded-lg shadow-lg bg-blue-100 bg-opacity-50")
       %p(class="px-4 py-2") 当前查询结果
       %div(class="w-full px-2 py-2" id="results" data-portal-search-target="results")
-  %section(class="flex flex-col items-center rounded-lg shadow-lg bg-blue-100 bg-opacity-50")
+  %section(class="flex flex-col items-center rounded-lg shadow-lg bg-blue-100 bg-opacity-50 w-1/2 flex-none h-full overflow-auto")
     %p(class="px-4 py-2") 搜索历史（本地保存）
     %div(class="w-full px-2 py-2" id="history" data-portal-search-target="history")
 

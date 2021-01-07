@@ -1,8 +1,8 @@
-%div(class="rounded-lg shadow-md bg-gradient-to-r from-green-300 to-blue-400 flex w-full h-24 mb-2" data-controller="clipboards")
-  %div(class="rounded-l-lg overflow-hidden w-1/3 h-24 mr-2")
+%div(class="rounded-lg shadow-md bg-gradient-to-r from-green-300 to-blue-400 flex w-full h-32 mb-2" data-controller="clipboards")
+  %div(class="rounded-l-lg overflow-hidden w-1/3 h-32 mr-2")
     = image_tag @image_url, class: "w-full h-full object-cover", alt: @coordinate
   %div(class="w-2/3 flex flex-col my-1")
-    %div(class="inline flex flex-col justify-between mb-1 mr-2")
+    %div(class="inline flex flex-col justify-between mt-2 mb-1 mr-2")
       %span(class="text-lg font-medium truncate")=@name
       %span(class="text-xs font-normal self-end truncate")=@coordinate
     %div(class="flex flex-auto items-center justify-between mr-2")
@@ -12,14 +12,16 @@
           <svg class="w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
           </svg>
-      %button(class="mr-2 w-6" data-clipboard-text="#{@link}" data-action="clipboards#event" data-clipboards-target="link")
+      %button(class="mr-2 flex" data-clipboard-text="#{@link}" data-action="clipboards#event" data-clipboards-target="link")
         :erb
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <span class="mr-1">Copy</span>
+          <svg class="w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
           </svg>
-      %button(class="mr-2 w-6" data-controller="portal-search" data-action="portal-search#save" data-portal-search-results-value="#{@raw}")
+      %button(class="mr-2 flex" data-controller="portal-search" data-action="portal-search#save" data-portal-search-results-value="#{@raw}")
         :erb
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <span class="mr-1">Save</span>
+          <svg class="w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
           </svg>
 
