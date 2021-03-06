@@ -22,10 +22,8 @@ class IfsSearch < ApplicationRecord
     width = img.columns
     height = img.rows
 
-    # find column step
-    step = find_step(img, bg_pixel)
-
-    slices = (0..width).step(step).to_a
+    # get column slices
+    slices = find_step(img, bg_pixel)
     unless slices.last == width
       slices << width
     end
@@ -36,9 +34,9 @@ class IfsSearch < ApplicationRecord
       img.fuzz = "5%"
       img.trim!(reset = true)
     end
-    po_list = img_list.map do |val|
+    po_list = img_list.map { |val|
       make_portal_list(val, bg_pixel)
-    end
+    }
     po_list.each_with_index do |pack, col|
       pack.each_with_index do |item, row|
         Tempfile.open("ifs_results-", Rails.root.join("tmp")) do |f|
@@ -48,7 +46,7 @@ class IfsSearch < ApplicationRecord
           ifs_search_result.result.attach(io: File.open(f.path), filename: "ifs_search_#{self.id}_#{col}_#{row}.jpg")
           ifs_search_result.find_duplicate
           f.unlink
-        rescue Exception => e
+        rescue => e
           puts e.message
           f.close!
         end
@@ -91,7 +89,7 @@ class IfsSearch < ApplicationRecord
     def find_step(img, bg_pixel)
       width = img.columns
       height = img.rows
-      tmp_img = img.crop(0, 0, width, (height/2).to_i, true)
+      tmp_img = img.crop(0, 0, width, height, true)
       cols = tmp_img.columns
       rows = tmp_img.rows
       match_set = []
@@ -99,21 +97,21 @@ class IfsSearch < ApplicationRecord
       cols.times do |index|
         match = 0
         tmp_img.get_pixels(index, 0, 1, rows).each do |p|
-          if p.fcmp(bg_pixel, (fuzz = 2500))
+          if p.fcmp(bg_pixel, (fuzz = 1500))
             match += 1
           end
         end
-        if (match * 100 / rows) > 95
-          temp_set << index
+        if (match * 100.0 / rows) >= 98
           if temp_set.size > 0
             if (index - temp_set[0]).abs > 100
               match_set << (temp_set.sum / temp_set.size).round
               temp_set = []
             end
           end
+          temp_set << index
         end
       end
-      median(match_set.each_cons(2).map { |a| a[1]-a[0] }).round(-2)
+      match_set
     end
 
     def make_portal_list(test, bg_pixel)
